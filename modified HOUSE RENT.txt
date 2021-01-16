@@ -1,0 +1,294 @@
+import java.util.*;
+import java.util.Scanner;
+public class linkedlist{
+    
+    Node head;
+    Node tail; 
+   
+     class Node{
+    int data;
+     Node next;
+    void Node(int data)
+    {
+        this.data = data;
+        next = null;
+        tail=null;
+        
+    }
+                    }
+     
+    public void addnode(int data)
+    {
+        Node newnode = new Node(data);
+        
+        if(head==null)
+        {
+            head=newnode;
+        }
+        
+        newnode.next=head;
+        head=newnode;
+        
+    }
+    
+    public void print()
+    {
+        Node curr = head;
+        while(curr!=null)
+        {
+            System.out.println(curr.data+">");
+            curr = curr.next;
+        }
+    }
+     public static void main(String []args){
+         int priceofsingle=3000;
+        int priceofdouble=4000;
+        int priceoftri=5000;
+        int priceofquad=6000;
+        int extracharges=0;
+        int discount=0;
+        int maidcharges=0;
+        int singleroombill;
+        int doubleroombill;
+        int triroombill;
+        int quadroombill;
+        int arr[] = new int[10];
+    
+        System.out.println("HELLO SIR/MAM WELCOME TO TEJVILLA CHANDIGARH");
+        System.out.println("Could you please tell how many persons you are");
+        Scanner sc = new Scanner(System.in);
+        String per = sc.nextLine();
+        System.out.println("ok you are "+ per+" persons");
+        System.out.println("sir please fill below given form");
+        System.out.println(" ");
+         //  Form //
+        System.out.print("Name - ");
+        String name = sc.nextLine();
+        System.out.print("E-mail ID -");
+        String email = sc.nextLine();
+        System.out.print("Contact - ");                                    //   using Array  //
+        for(int i=0;i<10;i++)
+        {
+            arr[i] =sc.nextInt();
+        }
+        System.out.print("House No. - ");
+        linkedlist lis = new linkedlist();
+        lis.addnode(1);
+        lis.addnode(2);
+        lis.addnode(3);
+        lis.print();
+         System.out.println(" ");
+        
+        
+        System.out.println("Sir what type of room you want then");
+        System.out.println("SINGLE-3000/,DOUBLE-4000/,TRI-5000/,QUAD-6000/");
+        String rd = sc.nextLine();
+        System.out.println("you choose "+ rd+" as your preference");
+        if(rd.equals("single"))
+        {
+            System.out.println("sir how many single rooms you want");
+            System.out.println("one room will cost you "+priceofsingle);
+            int num_ofsingle = sc.nextInt();                                        //no of single room
+            System.out.println("Sir how many month do you wanna live");
+            int months=sc.nextInt();                                                // no of months
+            System.out.println("you wanna live here for "+months+" months");
+            System.out.println("type yes if you pay bill per month for 20% discount");
+            String st=sc.next();                                                   //yes or no for discount
+            if(st.equals("yes"))
+            {
+             discount=(priceofsingle/100)*20;
+             System.out.println("you got discount of 20%");
+            }
+            else if(st.equals("no"))
+            {
+                discount=0;
+                 System.out.println("you got no discount");
+            }
+            System.out.println("type YES if you want breakfast service=Rs/=4000");
+            String choicebreak=sc.next();
+            if(choicebreak.equals("yes"))
+            {
+                 extracharges=4000;
+                 System.out.println("Rs 4000 will be added to your bill");
+            }
+            else
+            {
+                System.out.println("so extra charges will be 0 ");
+                extracharges=0;
+            }
+            System.out.println("type YES if you want maid services at Rs/1000");
+            String choicemaid=sc.next();
+            if(choicemaid.equals("yes"))
+            {
+                 maidcharges=1000;
+                 System.out.println("Rs 1000 will be added to your bill");
+            }
+            else
+            {
+                maidcharges=0;
+            }
+              singleroombill=(num_ofsingle*months*priceofsingle)+extracharges+maidcharges;
+            int total1;
+            total1=singleroombill-discount;
+             System.out.println(" ");
+            System.out.println("Thanks for your booking your total bill is "+total1+" Rs only");
+            
+        }  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        if(rd.equals("double"))
+        {
+            System.out.println("sir how many double rooms you want");
+            System.out.println("one room will cost you "+priceofdouble);
+            int num_ofdouble = sc.nextInt();                                        //no of double room
+            System.out.println("Sir how many month do you wanna live");
+            int months=sc.nextInt();                                                // no of months
+            System.out.println("you wanna live here for "+months+" months");
+            System.out.println("type yes if you pay bill per month for 20% discount");
+            String st=sc.next();                                                   //yes or no for discount
+            if(st.equals("yes"))
+            {
+             discount=(priceofdouble/100)*20;
+             System.out.println("you got discount of 20%");
+            }
+            else if(st.equals("no"))
+            {
+                discount=0;
+                 System.out.println("you got no discount");
+            }
+            System.out.println("type YES if you want breakfast service=Rs/=4000");
+            String choicebreak=sc.next();
+            if(choicebreak.equals("yes"))
+            {
+                 extracharges=4000;
+                 System.out.println("Rs 4000 will be added to your bill");
+            }
+            else
+            {
+                System.out.println("so extra charges will be 0 ");
+                extracharges=0;
+            }
+            System.out.println("type YES if you want maid services at Rs/1000");
+            String choicemaid=sc.next();
+            if(choicemaid.equals("yes"))
+            {
+                 maidcharges=1000;
+                 System.out.println("Rs 1000 will be added to your bill");
+            }
+            else
+            {
+                maidcharges=0;
+            }
+              doubleroombill=(num_ofdouble*months*priceofdouble)+extracharges+maidcharges;
+            int total2;
+            total2=doubleroombill-discount;
+             System.out.println(" ");
+            System.out.println("Thanks for your booking your total bill is "+total2+" Rs only");
+            
+        }/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         
+        if(rd.equals("tri"))
+        {
+            System.out.println("sir how many tri rooms you want");
+            System.out.println("one room will cost you "+priceoftri);
+            int num_oftri = sc.nextInt();                                        //no of double room
+            System.out.println("Sir how many month do you wanna live");
+            int months=sc.nextInt();                                                // no of months
+            System.out.println("you wanna live here for "+months+" months");
+            System.out.println("type yes if you pay bill per month for 20% discount");
+            String st=sc.next();                                                   //yes or no for discount
+            if(st.equals("yes"))
+            {
+             discount=(priceoftri/100)*20;
+             System.out.println("you got discount of 20%");
+            }
+            else if(st.equals("no"))
+            {
+                discount=0;
+                 System.out.println("you got no discount");
+            }
+            System.out.println("type YES if you want breakfast service=Rs/=4000");
+            String choicebreak=sc.next();
+            if(choicebreak.equals("yes"))
+            {
+                 extracharges=4000;
+                 System.out.println("Rs 4000 will be added to your bill");
+            }
+            else
+            {
+                System.out.println("so extra charges will be 0 ");
+                extracharges=0;
+            }
+            System.out.println("type YES if you want maid services at Rs/1000");
+            String choicemaid=sc.next();
+            if(choicemaid.equals("yes"))
+            {
+                 maidcharges=1000;
+                 System.out.println("Rs 1000 will be added to your bill");
+            }
+            else
+            {
+                maidcharges=0;
+            }
+              triroombill=(num_oftri*months*priceoftri)+extracharges+maidcharges;
+            int total3;
+            total3=triroombill-discount;
+             System.out.println(" ");
+            System.out.println("Thanks for your booking your total bill is "+total3+" Rs only");
+            
+        }////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        if(rd.equals("quad"))
+        {
+            System.out.println("sir how many quad rooms you want");
+            System.out.println("one room will cost you "+priceofquad);
+            int num_ofquad = sc.nextInt();                                        //no of QUAD room
+            System.out.println("Sir how many month do you wanna live");
+            int months=sc.nextInt();                                                // no of months
+            System.out.println("you wanna live here for "+months+" months");
+            System.out.println("type yes if you pay bill per month for 20% discount");
+            String st=sc.next();                                                   //yes or no for discount
+            if(st.equals("yes"))
+            {
+             discount=(priceofquad/100)*20;
+             System.out.println("you got discount of 20%");
+            }
+            else if(st.equals("no"))
+            {
+                discount=0;
+                 System.out.println("you got no discount");
+            }
+            System.out.println("type YES if you want breakfast service=Rs/=4000");
+            String choicebreak=sc.next();
+            if(choicebreak.equals("yes"))
+            {
+                 extracharges=4000;
+                 System.out.println("Rs 4000 will be added to your bill");
+            }
+            else
+            {
+                System.out.println("so extra charges will be 0 ");
+                extracharges=0;
+            }
+            System.out.println("type YES if you want maid services at Rs/1000");
+            String choicemaid=sc.next();
+            if(choicemaid.equals("yes"))
+            {
+                 maidcharges=1000;
+                 System.out.println("Rs 1000 will be added to your bill");
+            }
+            else
+            {
+                maidcharges=0;
+            }
+              quadroombill=(num_ofquad*months*priceoftri)+extracharges+maidcharges;
+            int total4;
+            total4=quadroombill-discount;
+             System.out.println(" ");
+            System.out.println("Thanks for your booking your total bill is "+total4+" Rs only");
+            
+        }//////////////////////////////////////////
+       
+    }
+     
+    
+}
